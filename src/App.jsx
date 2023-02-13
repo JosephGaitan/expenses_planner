@@ -4,7 +4,6 @@ import NuevoPresupuesto from "./components/NuevoPresupuesto";
 import IconoNuevoGasto from "./img/nuevo-gasto.svg";
 import Modal from "./components/Modal";
 
-//cambios a ver que tal
 
 
 function App() {
