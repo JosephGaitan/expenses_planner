@@ -148,6 +148,12 @@ header h1 {
 .alerta.success {
 }
 
+.contenedorEDIT {
+    width: 90%;
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
 .contenedor {
     width: 90%;
     max-width: 80rem;
@@ -185,6 +191,10 @@ header h1 {
 .formulario input[type="number"].nuevo-presupuesto {
     font-size: 2.8rem;
     text-align: center;
+}
+
+.formulario input[type="number"].nuevo-presupuesto {
+    width: 100%
 }
 
 .contenedor-presupuesto svg {
