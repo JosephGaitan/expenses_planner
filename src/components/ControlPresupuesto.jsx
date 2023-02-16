@@ -25,7 +25,7 @@ const ControlPresupuesto = ({
     const handleResetApp = () => {
         const confirmar = confirm('Do you really wish to delete the budget and all the expenses registered?')
 
-        if(confirm) {
+        if(confirmar) {
             setGastos([])
             setPresupuesto(0)
             setIsValidPresupuesto(false)
