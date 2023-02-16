@@ -82,7 +82,7 @@ const ControlPresupuesto = ({
                     {formatearCantidad(presupuesto)}
                 </p>
 
-                <p className={`${disponible < 0 ? 'negativo' : '' ^ porcentaje >= 70 ? 'critico' : '' }`}>
+                <p className={`${disponible <=0 ? 'negativo' : '' ^ porcentaje >= 70 && porcentaje < 100 ? 'critico' : '' }`}>
                     <span> 
                         Available:
                     </span>
