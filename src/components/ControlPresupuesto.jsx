@@ -2,7 +2,13 @@ import { useState, useEffect } from "react"
 import { buildStyles, CircularProgressbar } from "react-circular-progressbar"
 import "react-circular-progressbar/dist/styles.css"
 
-const ControlPresupuesto = ({ presupuesto, gastos }) => {
+const ControlPresupuesto = ({ 
+    gastos,
+    setGastos, 
+    presupuesto, 
+    setPresupuesto, 
+    setIsValidPresupuesto 
+}) => {
 
     const formatearCantidad = (cantidad) => {
         return cantidad.toLocaleString('en-US',{
@@ -16,6 +22,15 @@ const ControlPresupuesto = ({ presupuesto, gastos }) => {
     const [disponible, setDisponible] = useState(0)
     const [gastado, setGastado] = useState(0)
 
+    const handleResetApp = () => {
+        const confirmar = confirm('Do you really wish to delete the budget and all the expenses registered?')
+
+        if(confirm) {
+            setGastos([])
+            setPresupuesto(0)
+            setIsValidPresupuesto(false)
+        }
+    } 
 
 
     useEffect(() => {
@@ -41,9 +56,9 @@ const ControlPresupuesto = ({ presupuesto, gastos }) => {
             <div>
                 <CircularProgressbar
                     styles={buildStyles({
-                        pathColor : '#3B82F6',
+                        pathColor : porcentaje >= 100 ? '#DC2626' : '#3B82F6' ^ porcentaje >= 70 ? '#FE9001' : '#3B82F6' ,
                         trailColor : '#F5F5F5',
-                        textColor: '#3B82F6',
+                        textColor: porcentaje >= 100 ? '#DC2626' : '#3B82F6' ^ porcentaje >= 70 ? '#FE9001' : '#3B82F6' ,
                         
                     })}
                     value={porcentaje}
@@ -52,6 +67,13 @@ const ControlPresupuesto = ({ presupuesto, gastos }) => {
             </div>
 
             <div className="contenido-presupuesto">
+                <button
+                    className="reset-app"
+                    type='button'
+                    onClick={handleResetApp}
+                >
+                    Click here to delete all expenses
+                </button>
                 <p>
                     <span> 
                         Budget: 
@@ -60,7 +82,7 @@ const ControlPresupuesto = ({ presupuesto, gastos }) => {
                     {formatearCantidad(presupuesto)}
                 </p>
 
-                <p>
+                <p className={`${disponible < 0 ? 'negativo' : '' ^ porcentaje >= 70 ? 'critico' : '' }`}>
                     <span> 
                         Available:
                     </span>

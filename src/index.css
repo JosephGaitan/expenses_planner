@@ -219,6 +219,11 @@ header h1 {
 .contenido-presupuesto p.negativo span {
     color: red;
 }
+
+.contenido-presupuesto p.critico,
+.contenido-presupuesto p.critico span {
+    color: rgb(255, 136, 0);
+}
 .contenido-presupuesto span {
     font-weight: 900;
     color: var(--azul);

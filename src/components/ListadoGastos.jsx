@@ -1,23 +1,44 @@
-import Gasto from "./Gasto"
+import Gasto from "./Gasto";
+import { useState } from "react";
 
-const ListadoGastos = ({ gastos, setGastoEditar, eliminarGasto }) => {
-    return(
-        <div className="listado-gastos contenedor">
-            <h2>
-                {gastos.length ? 'Expenses' : 'There are not expenses yet'}
-            </h2>
+const ListadoGastos = ({
+  gastos,
+  setGastoEditar,
+  eliminarGasto,
+  filtro,
+  gastosFiltrados,
+}) => {
+  return (
+    <div className="listado-gastos contenedor">
+      {filtro ? (
+        <>
+          <h2>
+            {gastosFiltrados.length ? "Expenses" : "There are not expenses in this category"}
+          </h2>
+          {gastosFiltrados.map((gasto) => (
+            <Gasto
+              key={gasto.id}
+              gasto={gasto}
+              eliminarGasto={eliminarGasto}
+              setGastoEditar={setGastoEditar}
+            />
+          ))}
+        </>
+      ) : (
+        <>
+          <h2>{gastos.length ? "Expenses" : "There are not expenses yet"}</h2>
+          {gastos.map((gasto) => (
+            <Gasto
+              key={gasto.id}
+              gasto={gasto}
+              eliminarGasto={eliminarGasto}
+              setGastoEditar={setGastoEditar}
+            />
+          ))}
+        </>
+      )}
+    </div>
+  );
+};
 
-            {gastos.map( gasto => (
-                <Gasto 
-                eliminarGasto={eliminarGasto}
-                setGastoEditar={setGastoEditar}
-                key={gasto.id}
-                gasto={gasto}
-                />
-            ))}
-        
-        </div>
-    )
-}
-
-export default ListadoGastos
+export default ListadoGastos;
