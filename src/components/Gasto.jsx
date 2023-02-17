@@ -27,12 +27,18 @@ const diccionarioIconos = {
   subscriptions: IconoSus,
 };
 
-const Gasto = ({ gasto, setGastoEditar, eliminarGasto }) => {
-  const { categoria, nombre, cantidad, id, fecha } = gasto;
+const Gasto = ({ gasto, setGastoEditar, eliminarGasto, setFiltro }) => {
+  
+  var { categoria, nombre, cantidad, id, fecha } = gasto;
+
+  const handleEditar = () => {
+    setFiltro('')
+    setGastoEditar(gasto)
+  }
 
   const leadingActions = () => (
     <LeadingActions>
-      <SwipeAction onClick={() => setGastoEditar(gasto)}>Edit</SwipeAction>
+      <SwipeAction onClick={() => handleEditar()}>Edit</SwipeAction>
     </LeadingActions>
   );
 

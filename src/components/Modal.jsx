@@ -33,6 +33,7 @@ const Modal = ({
     }, [] )
 
     const ocultarModal = () => {
+        setFiltro('')
         setGastoEditar({})
         setAnimarModal(false)
         setTimeout(() => {
@@ -56,7 +57,7 @@ const Modal = ({
 
 
     return (
-        <div className="modal ">
+        <div className="modal modal1">
             <div className="cerrar-modal">
                 <img 
                     src={CerrarBtn}

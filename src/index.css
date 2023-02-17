@@ -254,6 +254,7 @@ main {
     display: flex;
     align-items: center;
     gap: 2rem;
+    justify-content: space-around;
 }
 .filtros label {
     font-size: 3rem;
@@ -381,6 +382,13 @@ main {
 body .modal {
     overflow: hidden;
 }
+
+
+body .modal1 {
+    overflow: hidden;
+    height: 100vh;
+}
+
 
 .modal .formulario.animar {
     position: relative;

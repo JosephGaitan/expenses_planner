@@ -6,6 +6,7 @@ const ListadoGastos = ({
   setGastoEditar,
   eliminarGasto,
   filtro,
+  setFiltro,
   gastosFiltrados,
 }) => {
   return (
@@ -17,6 +18,7 @@ const ListadoGastos = ({
           </h2>
           {gastosFiltrados.map((gasto) => (
             <Gasto
+              setFiltro={setFiltro}
               key={gasto.id}
               gasto={gasto}
               eliminarGasto={eliminarGasto}
@@ -29,6 +31,7 @@ const ListadoGastos = ({
           <h2>{gastos.length ? "Expenses" : "There are not expenses yet"}</h2>
           {gastos.map((gasto) => (
             <Gasto
+              setFiltro={setFiltro}
               key={gasto.id}
               gasto={gasto}
               eliminarGasto={eliminarGasto}

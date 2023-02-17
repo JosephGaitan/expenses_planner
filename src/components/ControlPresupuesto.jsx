@@ -5,6 +5,7 @@ import "react-circular-progressbar/dist/styles.css"
 const ControlPresupuesto = ({ 
     gastos,
     setGastos, 
+    setFiltro,
     presupuesto, 
     setPresupuesto, 
     setIsValidPresupuesto 
@@ -26,6 +27,7 @@ const ControlPresupuesto = ({
         const confirmar = confirm('Do you really wish to delete the budget and all the expenses registered?')
 
         if(confirmar) {
+            setFiltro('')
             setGastos([])
             setPresupuesto(0)
             setIsValidPresupuesto(false)
