@@ -33,7 +33,6 @@ const Modal = ({
     }, [] )
 
     const ocultarModal = () => {
-        setFiltro('')
         setGastoEditar({})
         setAnimarModal(false)
         setTimeout(() => {
