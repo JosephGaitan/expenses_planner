@@ -359,6 +359,7 @@ main {
 }
 .modal .cerrar-modal {
     position: absolute;
+    z-index: 3;
     right: 3rem;
     top: 3rem;
     width: 3rem;
